@@ -1,94 +1,47 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+<!-- 데이터 바인딩 -->
+    <div> {{ msg }} </div>
+    <!-- 양방향 데이터 바인딩 -->
+    <input v-model="input">
+    <div> input : {{ input }} </div>
+    <!-- v-for 예제 -->
+    <div> <span :key="num" v-for="num in list"></span> {{ num }}</div>
+    <!-- event 바인딩  -->
+    <div @click="clickEvent">이벤트버튼</div>
+    <!-- 속성 바인딩 -->
+    <a :href="href">링크</a>
+
+<!-- 자식 컴포넌트 예제 -->
+    <child :data="childData"></child>
+
+    <!-- 자식 컴포넌트와 v-for의 결합 -->
+    <child :key="index" v-for="(fordata,index) in forData" :data="fordata"></child>
+
+    
   </div>
 </template>
 
 <script>
+import Child from '@/components/Child'
 export default {
   name: 'HelloWorld',
+  components: {
+    child: Child
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      input: '',
+      list : [1,2,3,4,5],
+      href : 'http://www.naver.com',
+      childData : '자식에게 넘겨줄 데이터',
+      forData: ['a','b','c','d','e']
+    }
+  },
+  methods: {
+    clickEvent: function () {
+      this.msg = 'Hi hycube';
     }
   }
 }
