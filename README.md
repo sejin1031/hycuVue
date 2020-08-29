@@ -1,6 +1,6 @@
-# hycube
+# 2020-2학기 hycube Vue 스터디 코드 저장소
 
-> A Vue.js project
+> 각 차수마다 브랜치로 구분해 업로드 해 두었습니다.
 
 ## Build Setup
 
