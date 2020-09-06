@@ -1,18 +1,18 @@
 <template>
   <div class="hello">
-<!-- 데이터 바인딩 -->
+    <!-- 데이터 바인딩 -->
     <div> {{ msg }} </div>
     <!-- 양방향 데이터 바인딩 -->
     <input v-model="input">
     <div> input : {{ input }} </div>
     <!-- v-for 예제 -->
-    <div> <span :key="num" v-for="num in list"></span> {{ num }}</div>
+    <div> <span :key="num" v-for="num in list">{{ num }}</span> </div>
     <!-- event 바인딩  -->
     <div @click="clickEvent">이벤트버튼</div>
     <!-- 속성 바인딩 -->
     <a :href="href">링크</a>
 
-<!-- 자식 컴포넌트 예제 -->
+    <!-- 자식 컴포넌트 예제 -->
     <child :data="childData"></child>
 
     <!-- 자식 컴포넌트와 v-for의 결합 -->
