@@ -26,5 +26,10 @@ export default {
 </script>
 
 <style>
-
+#todolist {
+  font-weight: bold;
+}
+.todo-wrap {
+  border: black 3px solid; width: 30vw; left: auto; right: auto;
+}
 </style>
